@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let obj={};
+    Object.defineProperty(obj,'school',{
+        configurable:true,
+        // writable:true,
+        enumerable:true,
+        // value:'zfx',
+        get(){//获取obj.school的值得时，会调用get方法
+          return 'zfpx5555'
+        },
+        set(val){ //obj.school='zfpx999'
+            console.log(val)
+        }
+    });
+    // delete obj.school;
+    // obj.school='zfpx2';
+    for(let key in obj){
+        console.log(key)
+    }
+    console.log(obj)
+
+</script>
+</html>

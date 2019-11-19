@@ -1,0 +1,17 @@
+{
+  "name": "0gongkaiWebpack",
+  "version": "1.0.0",
+  "main": "require.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {},
+  "description": ""
+}
