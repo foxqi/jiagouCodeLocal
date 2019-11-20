@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let xhr=new XMLHttpRequest;
+    document.cookie='name=zfpx';
+    xhr.withCredentials=true;//强制凭证
+    xhr.open('PUT','http://localhost:4000/getData',true);
+    xhr.setRequestHeader('name','zfpx');
+    xhr.onreadystatechange=function () {
+        if(xhr.readyState===4){
+            if(xhr.status>=200&&xhr.status<300||xhr.status===304){
+                console.log(xhr.response)
+                console.log(xhr.getResponseHeader('name'))
+            }
+        }
+    }
+    xhr.send()
+</script>
+</body>
+</html>

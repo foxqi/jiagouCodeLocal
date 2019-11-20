@@ -1,3 +1,23 @@
+# 多种跨域方案详解
+
+- 同源策略：协议，域名，端口，同域
+###### 为什么浏览器不支持跨域
+ - cookie LocalStorage
+ - DOM元素也有同源策略 iframe
+ - ajax 也不支持跨域
+
+###### 实现跨域
+ - jsonp
+ - cors（纯后端提供）
+ - postMessage
+ - document.domain
+ - window.name
+ - location.hash
+ - http-proxy
+ - nginx
+ - websocket
+
+
 # 1.模块化
 模块化是指把一个复杂的系统分解到多个模块以方便编码
 
