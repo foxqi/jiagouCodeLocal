@@ -1,4 +1,3 @@
-kuauauauauuaua
 # 多种跨域方案详解
 
 - 同源策略：协议，域名，端口，同域
@@ -11,12 +10,34 @@ kuauauauauuaua
  - jsonp
  - cors（纯后端提供）
  - postMessage
- - document.domain
  - window.name
  - location.hash
+ - document.domain（domain是域名的意思,用此 方法必须是同一个一级和二级域名的关系）
+ - websocket（没有域的问题。高级api,但不兼容）
+ - nginx(这是个包下载，http://nginx.org/en/download.html，具体看架构课01公开课02多种跨域方案中一小时30分钟的讲解)
  - http-proxy
- - nginx
- - websocket
+
+
+
+
+
+  `//设置哪个源可以访问我
+        res.setHeader('Access-Control-Allow-Origin',origin);
+        //允许携带哪个头访问我
+        res.setHeader('Access-Control-Allow-Headers','name');
+        //允许携带哪个方法访问我
+        res.setHeader('Access-Control-Allow-Methods','PUT');
+        //允许携带cookie
+        res.setHeader('Access-Control-Allow-Credentials',true);
+        //预检的存活时间
+        res.setHeader('Access-Control-Max-Age',6);
+        //允许返回的头
+        res.setHeader('Access-Control-Expose-Headers','name');`
+
+##### 配置本机域名
+`C:\Windows\System32\drivers\etc\hosts用笔记本打开，
+输入 127.0.0.1 b.zf1.cn即可本地访问此域名`
+
 
 
 # 1.模块化
@@ -352,7 +373,24 @@ Webpack是一个打包模块化JavaScript的工具，在Webpack里一切文件�
    - 添加贡献者，被添加的人拥有最大权限
    
    ## GUI界面化（此处是讲的如何配置webstorm中的git）
-    
+
+##### git与github 工作流程
+1. git工作流总结
+    1. 创建一个空目录 mkdir
+    2. 进入目录： cd 目录名
+    3. git init 初始化仓库
+    4. 新建文件到工作区
+    5. git add 添加到暂存区
+    6. git commit -m"注释" 添加到历史区
+2. 本地仓库和远程仓库关联起来
+    - git remote add origin 远程仓库的地址
+    - git remote add origin https://github.com/zhufengpeixun/JavaScript201606.git
+    - 查看远程仓库地址：git remote -v
+    - 解除关联:git remote rm origin
+3. 远程仓库内容更新到本地仓库
+    - git pull origin master
+4. 把本地内容提交到远程仓库
+    - git push origin master    
        
        
     `（这一下都是linyx命令）`

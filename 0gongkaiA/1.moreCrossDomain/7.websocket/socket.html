@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //高级api，但不兼容。socket.io(使用这个库可以兼容)
+
+    let socket=new WebSocket('ws://localhost:3000');
+    socket.onopen=function () {
+        socket.send('woaini11');
+    }
+socket.onmessage=function (e) {
+    console.log(e.data)
+}
+</script>
+</body>
+</html>
