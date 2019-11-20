@@ -275,6 +275,7 @@ Webpack是一个打包模块化JavaScript的工具，在Webpack里一切文件�
      - 添加到暂存区  git add ./-A/文件名
      - 添加到历史区  git commit -m '消息'
      - 查看版本号    git log 
+     - 只要提交过一次，就可以从工作区直接到历史区  git commit -a -m "消息"
    3. git不同区的代码比较
      - git diff  (默认是工作区和暂存区比较)
      - git diff 分支名（因为有的时候可能不是master）  (工作区和历史区比较)
