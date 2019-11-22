@@ -38,6 +38,8 @@
 `C:\Windows\System32\drivers\etc\hosts用笔记本打开，
 输入 127.0.0.1 b.zf1.cn即可本地访问此域名`
 
+
+
 # OAuth（问的一般，但是都会微信登录，微博登录用到的很多）
  1. 什么是OAuth
     - 开放式授权协议
@@ -1035,7 +1037,9 @@ http://www.cnblogs.com/2050/p/3877280.html
 
  
 # 7.node
-
+#### node中的第三方插件
+- var uuid=require('uuid');//生成不重复的随机字符串
+  - uuid.v4()
 ## node的安装
 - https://nodejs.org/en/
 
