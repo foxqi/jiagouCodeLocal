@@ -163,7 +163,9 @@ yarn cache clean # 清除缓存
 
 # 1.模块化
 模块化是指把一个复杂的系统分解到多个模块以方便编码
-
+  - 模块化  低耦合 高内聚，方便维护，防止代码冲突（命名冲突）
+  - （闭包）  单例（不能保证一定不冲突，导致调用过长）
+  - CMD seajs 就近依赖 AMD 依赖前置 requirejs(浏览器端的模块化)
 ###1.1 命名空间
  开发网页要通过命名空间的方式来组织代码
  - 命名空间冲突，俩个库可能会使用同一个名称
@@ -1391,11 +1393,102 @@ node 文件名
 ###### 4缓冲区
  - 缓存区 
  
+#### 模块化 
+- node基于规范commonjs，文件的读写，node天生自带模块化
+  1. 定义如何创建一个模块，一个js文件就是一个模块
+  2. 如果使用一个模块   你要使用一个文件只需要require一个文件  
+    - 如果自己写的文件要通过./的方式，文件模块,如果是js，node，json后缀可以省略，他会自动添加.js  .json  .node依次匹配
+    - require方法具有缓存功能，多次引用只执行一次
+    
+  3. 如何导入一个模块  export/module.exports
+  
+  
+#### 第三方模块要通过npm来进行安装 node  package manager
+  ##### 全局安装  -g （只能在“命令行”中使用）  
+    - 查看默认的安装路径 npm root -g   不会自动加入环境变量中，而是通过npm进行映射
+    - nrm（nrm可以帮助你不同的NPM登记之间方便，快捷开关，现在包括：npm，cnpm，taobao，nj(nodejitsu)），nvm(node registry manager,是npm的一个源)也是node的一个工具，
+      - https://www.npmjs.com/package/nrm
+      - npm install nrm -g   安装nrm包
+      - npm uninstall nrm -g 删除nrm包
+      - nrm test 测试连接时间
+      - nrm ls 显示所有的可用源
+      - nrm use 源的名字（比如taobao，npm）  切换源
+      
+  ##### http-server    (https://www.npmjs.com/package/http-server)
+     - 帮我们启动一个本地服务
+       - npm i -g http-server    简写安装http-server包
+       - http-server -p 3000  在摸个路径下启动服务
+ 
+  ##### idoc  (https://www.npmjs.com/package/idoc)
+     - 简单的通过markdown文件生成静态页面的小工具。
+       - npm i idoc -g
+             
+  ##### 本地安装
+     - 没有-g参数，安装之前需要初始化，记录安装依赖的
+       - 如果不初始化，直接安装，默认先找当前下的package.json,如果当前目录没有会到上级查找，找不到才认为在当前目录下安装
+     ```
+      npm init -y 
+      
+     ```
+     > package.json,目录不能有中文，特殊字符，大写
+     > package.json中scripts可以配置一些快捷方式
+     
+     
+   - 项目依赖（这个用的最多）
+        - 开发时使用，上线还需要  
+        ```
+        npm install jquery
+        现在的不需要加 --save,默认是项目依赖
+        
+        npm uninstall jquery
+        
+        安装某个版本
+        npm install jquery@1.8.3
+        ```
+     
+   - 开发依赖
+     - 开发时使用，线上不使用
+     ```
+     npm install jquery --save-dev
+     npm uninstall jquery --save-dev
+     
+     ```
+   - 安装全部依赖
+   ```
+    npm install
+   ``` 
+##### yarn安装 差不多等于cnpm 
+  - npm install -g yarn
+  ```
+  yarn init   先初始化
+  yarn add jquery 安装jquery安装到项目依赖
+  yarn add less --dev 安装开发依赖
+  
+  yarn reomve less --dev 删除
+  
+  yarn install 安装全部依赖
+  ```
+##### 想发布包
+- 先回到国外 nrm use npm
+- 包名不能和已有的包一致 
+- 有入口文件，做整合用的
+- 在npm官网注册账户,如果有账号表示登陆，没有表示注册。新用户需要校验邮箱
+```
+npm addUser
+``` 
+- 发布
+```
+npm 包名    就发布上去了
 
-
-
-
-
+```
+- 不能同名的包里安装一样的名字的包，不能自己安装自己
+- 如果引用第三方文件，不需要./的形式引入，直接可以写包名将文件引入。比如 require('vue-plus'),会找package.json中的main对应的文件，node_modules下对应的文件下的index运行。如果当前目录下没找到会向上一级查找。找到计算机的根目录为止
+  - console.log(module.paths)-- 真机的查找目录
+ 
+ #### 内置核心模块（与第三方模块不同，第三方模块需要网络安装）
+ 
+ - fs模块 fileSystem 文件系统
+ - 
   
  ### process(区分环境变量)
  ```
