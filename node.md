@@ -1510,6 +1510,67 @@ npm 包名    就发布上去了
      }
      console.log(url); 
   ```
+### Buffer（16进制）
+- 缓冲区Buffer是暂时存放输入输出数据的  一段内存
+- JS语言没有二进制数据类型，而在处理TCP和文件流的时候，必须要处理二进制数据
+- NodeJS提供了一个Buffer对象来提供对二进制数据的操作
+- NodeJS提供了一个Buffer对象来提供对二进制数据的操作
+- 是一个表示 固定内存 分配的全局对象，也就是说要放到缓存区中的字节数需要提前确定
+- Buffer好比由一个多位字节元素组成的数组，可以有效的在javascript中表示二进制数据
+
+### 字节
+- 字节（Byte）是计算机存储时的一种计量单位，一个字节等于8位二进制数
+- 一个位就代表一个0或1，每8个位（bit）组成一个字节（Byte）
+- 字节是通过网络传输信息的单位
+- 一个字节最大值十进制数是255
+- 1024b = 1027k
+- 8bit(8个二进制) = 1b
+- 1个汉字（3个b）
+- 1个字节转化成十进制是255
+
+
+
+
+
+
+
+
+
+
+
+## react  
+- https://react.docschina.org/docs/components-and-props.html
+```
+组件的运行方式
+1. render发现一个用户自定义组件，如果标签名是以大写字母开头就是用户自定义组件，如果小写字母开头就是DOM组件
+welcome标签在浏览器不能识别。如果你想要渲染一个react组件，请大写字母开头命名它
+
+2.先把JSX的属性封装成一个props对象{name:"zfpx",age:"8"}
+3.把它作为参数传递给welcome函数，获取到一个返回值，返回值是一个React元素
+4.render方法会把此react元素渲染到页面上。antdesign+imutablejs+mobx+docker做一个博客，论坛
+
+```
+```
+纯函数
+1. 相同的输入一定会返回相同的输出
+let sum=(a,b)=>a+b;
+let getData=a=>a+Math.random();//不是纯函数
+
+永远  不能修改传进去的值
+
+function withDraw(account,amount){
+ account.balance-=amount;
+}
+let account={balance:200};
+withDraw(account,100);
+console.log(account);
+```
+
+
+
+
+
+
 
 
 
